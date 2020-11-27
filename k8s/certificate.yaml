@@ -1,0 +1,20 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: multi-k8s-kosciesza.pl-tls
+spec:
+  secretName: multi-k8s-kosciesza-pl
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: simple-k8s.kosciesza.pl
+  dnsNames:
+    - simple-k8s.kosciesza.pl
+    - www.simple-k8s.kosciesza.pl
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - simple-k8s.kosciesza.pl
+          - www.simple-k8s.kosciesza.pl

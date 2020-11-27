@@ -13,7 +13,7 @@ before_install:
   - gcloud auth activate-service-account --key-file service-account.json
   - gcloud config set project multi-k8s-296709
   - gcloud config set compute/zone europe-west1-b
-  - gcloud container clusters get-credentials europe-west1-b
+  - gcloud container clusters get-credentials multi-k8s-296709
   - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_USERNAME" --password-stdin
   - docker build -t lukaszkos/react-test -f ./client/Docker.dev ./client
 
